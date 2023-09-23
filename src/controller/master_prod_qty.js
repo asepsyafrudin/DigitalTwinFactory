@@ -1,6 +1,7 @@
 import {
   createMasterProductionQtyModels,
   deleteMasterProductionQtyModels,
+  getMasterProductionQtyModels,
 } from "../model/master_prod_qty.js";
 
 export const createProductionQty = async (req, res) => {
@@ -28,6 +29,21 @@ export const deleteProductionQty = async (req, res) => {
   } catch (error) {
     res.status(400).json({
       msg: "delete data failed",
+      errMsg: error,
+    });
+  }
+};
+
+export const getProductionQty = async (req, res) => {
+  try {
+    const [result] = await getMasterProductionQtyModels();
+    res.status(200).json({
+      msg: "get data success",
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      msg: "get data failed",
       errMsg: error,
     });
   }

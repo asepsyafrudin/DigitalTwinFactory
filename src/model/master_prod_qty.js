@@ -14,3 +14,8 @@ export const deleteMasterProductionQtyModels = (id) => {
   const sql = `delete from DTF_M_PROD_QTY where ID = ${id}`;
   return connectDB.execute(sql);
 };
+
+export const getMasterProductionQtyModels = () => {
+  const sql = `select * from DTF_M_PROD_QTY`;
+  return connectDB.execute(sql);
+};
